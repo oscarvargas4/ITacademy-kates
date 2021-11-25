@@ -1,3 +1,4 @@
+// Solution: https://github.com/StratocasterO/katas-it-academy/blob/master/2021_11_24/katas_sol.js
 //* ------------------------ Variables --------------------------
 
 console.log("----------------- Exercicis de variables ---------------");
