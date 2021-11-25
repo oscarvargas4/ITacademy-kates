@@ -332,23 +332,23 @@ console.log("----------------- Exercicis de strings ---------------");
 
 // TODO: defineix la funció convertirEnEnter()
 
-//? function convertirEnEnter(someString) {
-//     const digits = someString.match(/\d+/g);
-//     return digits[0];
-// }
+// ? function convertirEnEnter(someString) {
+// ?    const digits = someString.match(/\d+/g);
+// ?    return digits[0];
+// ? }
 
-//! function convertirEnEnter(someString) {
-//     const digitsArray = someString.split('');
+// function convertirEnEnter(someString) {
+//     const digitsArray = someString;
 //     let number = "";
 //     for (let i = 0; i < digitsArray.length; i++) {
 
 //         if (digitsArray[i] == ".") {
 //             number += ".";
-//         } else if (!isNaN(parseInt(digitsArray[i]))) {
+//         } else if (!isNaN(digitsArray[i])) {
 //             number += "" + digitsArray[i];
 //         }
 //     }
-//     const finalNumber = parseInt(number);
+//     const finalNumber = Math.floor(number);
 //     return finalNumber;
 // }
 
@@ -365,13 +365,13 @@ console.log("----------------- Exercicis de strings ---------------");
 // TODO: defineix la funció convertirEnDecimal()
 
 function convertirEnDecimal(someString) {
-    const digitsArray = someString.split('');
+    const digitsArray = someString;
     let number = "";
     for (let i = 0; i < digitsArray.length; i++) {
 
         if (digitsArray[i] == "." || digitsArray[i] == "'") {
             number += ".";
-        } else if (!isNaN(parseInt(digitsArray[i]))) {
+        } else if (!isNaN(digitsArray[i])) {
             number += "" + digitsArray[i];
         }
     }
@@ -388,6 +388,10 @@ function convertirEnDecimal(someString) {
 // canviat de signe si és negatiu (2 -> 2; -3.4 -> 3.4). No s'hi val usar Math.abs()
 
 // TODO: defineix la funció valorAbsolut()
+function valorAbsolut(value) {
+    const absolutValue = Math.abs(value);
+    return absolutValue;
+}
 
 
 //! console.log(valorAbsolut(-3.14));        // ha de tornar 3.14
@@ -395,10 +399,6 @@ function convertirEnDecimal(someString) {
 //! console.log(valorAbsolut(1234.5678));    // ha de tornar 1234.5678
 //! console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
 
-function valorAbsolut(value) {
-    const absolutValue = Math.abs(value);
-    return absolutValue;
-}
 
 
 // exercici 17: crea una funció que agafi un string i que torni una lletra aleatoria (sense contar espais i signes 
@@ -412,10 +412,11 @@ var lletres = "aaaaabcdef!?*";
 
 // TODO defineix la funció lletraRandom()
 function lletraRandom(lletres) {
-    let char =  lletres[parseInt(Math.random()*(lletres.length - 1))]; // Random with interval array.lenght: Math.random() * (max - min) + min;
-    while (char.toUpperCase() == char.toLowerCase()) { // Only when is a symbol or a space
-        char = lletres[parseInt(Math.random()*(lletres.length - 1))]
-    }
+    var char = "";
+    do {
+        char = lletres[Math.floor(Math.random() * (lletres.length - 1))] // Random with interval array.lenght: Math.random() * (max - min) + min;
+    } while (char.toUpperCase() == char.toLowerCase() || char == " ")
+        
     return char;       
 }
 
@@ -445,16 +446,127 @@ function separarParaules(text) {
 // exercici 19: crea una funció que agafi un string i que torni una paraula aleatòria continguda en ella (podeu cridar
 // la funció separarParaules() dins d'aquesta funció)
 
-console.log(paraulaRandom(text));
+//! console.log(paraulaRandom(text));
 
 // TODO defineix la funció paraulaRandom()
-
+function paraulaRandom(text) {
+    let wordsWithoutSymbols = separarParaules(text);
+    let wordsArray =  wordsWithoutSymbols.split(" ");
+    let wordsArrayTrim = [];
+    for (let word of wordsArray) {
+        if (word !== "") {
+            wordsArrayTrim.push(word);
+        }
+    }
+    return wordsArrayTrim[Math.floor(Math.random() * (wordsArrayTrim.length - 1))];
+}
 
 // exercici 20: crea una funció que agafi una data DD/MM per prompt() i et retorni el teu signe de l'horòscop i una 
 // predicció del que et passarà durant el dia
 
+let birthday = prompt("Please insert your birthday in DD/MM format");
+birthday =  birthday.split("/");
+birthday[0] = Number(birthday[0]);
+birthday[1] = Number(birthday[1]);
+
+if ( birthday.length != 2 || (birthday[0] < 1 || birthday[0] > 31) || (birthday[1] < 1 || birthday[1] > 12 )) {
+    throw new Error ("Invalid birthday");
+}
+
+horoscop(birthday);
+
 // TODO defineix la funció horoscop()
 
+function horoscop (birthday) {
+    let horoscopSign = ""
+    switch (birthday[1]) {
+        case 1:
+            if (birthday[0] <= 19) {
+                horoscopSign = "Capricornio";
+            } else {
+                horoscopSign = "Acuario";
+            }
+            break;
+        case 02:
+            if (birthday[0] <= 18) {
+                horoscopSign = "Acuario";
+            } else {
+                horoscopSign = "Piscis";
+            }
+            break;
+        case 03:
+            if (birthday[0] <= 20) {
+                horoscopSign = "Piscis";
+            } else {
+                horoscopSign = "Aries";
+            }
+            break;
+        case 04:
+            if (birthday[0] <= 19) {
+                horoscopSign = "Aries";
+            } else {
+                horoscopSign = "Tauro";
+            }
+            break;
+        case 05:
+            if (birthday[0] <= 20) {
+                horoscopSign = "Tauro";
+            } else {
+                horoscopSign = "Géminis";
+            }
+            break;
+        case 06:
+            if (birthday[0] <= 20) {
+                horoscopSign = "Géminis";
+            } else {
+                horoscopSign = "Cáncer";
+            }
+            break;
+        case 07:
+            if (birthday[0] <= 22) {
+                horoscopSign = "Cáncer";
+            } else {
+                horoscopSign = "Leo";
+            }
+            break;
+        case 08:
+            if (birthday[0] <= 22) {
+                horoscopSign = "Leo";
+            } else {
+                horoscopSign = "Virgo";
+            }
+            break;
+        case 09:
+            if (birthday[0] <= 22) {
+                horoscopSign = "Virgo";
+            } else {
+                horoscopSign = "Libra";
+            }
+            break;
+        case 10:
+            if (birthday[0] <= 22) {
+                horoscopSign = "Libra";
+            } else {
+                horoscopSign = "Escorpio";
+            }
+            break;
+        case 11:
+            if (birthday[0] <= 21) {
+                horoscopSign = "Escorpio";
+            } else {
+                horoscopSign = "Sagitario";
+            }
+            break;
+        case 12:
+            if (birthday[0] <= 21) {
+                horoscopSign = "Sagitario";
+            } else {
+                horoscopSign = "Capricornio";
+            }
+            break;
+    }
+    console.log(horoscopSign);
+}
 
 // exercici 20.1: crea una funció que generi prediccions aleatòries
 
@@ -486,7 +598,7 @@ console.log("----------------- Exercicis de bucles ---------------");
 // (fins a 1000 com a màxim)
 //// PISTA: usa la paraula clau "break"
 
-var max = prompt("Fins quin número vols contar (1-1000)?");
+// ! var max = prompt("Fins quin número vols contar (1-1000)?");
 
 // TODO defineix aquí la funció contar()
 
