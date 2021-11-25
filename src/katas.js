@@ -158,21 +158,21 @@ const poligon = (costat, costats) => {
 // TODO: defineix la funció botiga()
 
 
-// const botiga = () => {
-//     var optionOne = prompt("quin item vols (samarreta, pantaló i barret)");
-//     if (optionOne == "barret") {
-//         var optionTwo = prompt("sel·leccionar el tipus (copa, pirata, gorra, llana)");
-//         return `Has sel.leccionat ${optionOne} de tipus ${optionTwo}`;
-//     } else {
-//         var optionTwo = prompt("indica un color)");
-//         var talla = prompt("sel·leccionar la talla (S, M, L, XL)");
-//         return `Has sel.leccionat ${optionOne} de color ${optionTwo} y talla ${talla}`;
-//     }
-// }
+const botiga = () => {
+    var optionOne = prompt("quin item vols (samarreta, pantaló i barret)");
+    if (optionOne == "barret") {
+        var optionTwo = prompt("sel·leccionar el tipus (copa, pirata, gorra, llana)");
+        return `Has sel.leccionat ${optionOne} de tipus ${optionTwo}`;
+    } else {
+        var optionTwo = prompt("indica un color)");
+        var talla = prompt("sel·leccionar la talla (S, M, L, XL)");
+        return `Has sel.leccionat ${optionOne} de color ${optionTwo} y talla ${talla}`;
+    }
+}
 
-// var carrito = botiga();
+//! var carrito = botiga();
 
-// console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla L)"
+//! console.log(carrito);  // això tornarà "Has demanat un barret de pirata (talla L)"
 
 
 
@@ -185,68 +185,67 @@ console.log("----------------- Exercicis de numbers ---------------");
 
 // TODO: defineix la funció calculadora() (reutilitza la que vam fer a classe fa uns dies)
 
-// function calculadora(num1, num2) {
-//     var simbols = ["+","-","*","/","sqrt","cbrt"]
-//     var sim = prompt("simbol")
+function calculadora(num1, num2) {
+    var simbols = ["+","-","*","/","sqrt","cbrt"]
+    var sim = prompt("simbol")
 
-//     if (num1 && num2) {
-//         if (simbols.indexOf(sim) != -1) {
-//             switch (sim) {
-//                 case "+":
-//                     console.log(num1 + num2);
-//                     break;
-//                 case "-":
-//                     console.log(num1 - num2);
-//                     break;
-//                 case "*":
-//                     console.log(num1 * num2);
-//                     break; 
-//                 case "/":
-//                     console.log(num1 / num2);
-//                     break;  
-//                 case "sqrt":
-//                     console.log(Math.pow(num1, 2));
-//                     break; 
-//                 case "cbrt":
-//                     console.log(Math.pow(num1, 3));
-//                     break;         
-//             }
-//         } else {
-//             console.log("Incorrect simbol")
-//         }
-//     }
+    if (num1 && num2) {
+        if (simbols.indexOf(sim) != -1) {
+            switch (sim) {
+                case "+":
+                    console.log(num1 + num2);
+                    break;
+                case "-":
+                    console.log(num1 - num2);
+                    break;
+                case "*":
+                    console.log(num1 * num2);
+                    break; 
+                case "/":
+                    console.log(num1 / num2);
+                    break;  
+                case "sqrt":
+                    console.log(Math.sqrt(num1));
+                    break; 
+                case "cbrt":
+                    console.log(Math.cbrt(num1));
+                    break;         
+            }
+        } else {
+            console.log("Incorrect simbol")
+        }
+    }
 
-//     if (!num2) {
-//         if (simbols.indexOf(sim) != -1) {
-//             switch (sim) {
-//                 case "+":
-//                     console.log(num1 + num1);
-//                     break;
-//                 case "-":
-//                     console.log(num1 - num1);
-//                     break;
-//                 case "*":
-//                     console.log(num1 * num1);
-//                     break; 
-//                 case "/":
-//                     console.log(num1 / num1);
-//                     break; 
-//                 case "sqrt":
-//                     let result = Math.pow(num1, 2);
-//                     console.log(result);
-//                     break;
-//                 case "cbrt":
-//                     console.log(Math.cbrt(num1));
-//                     break;             
-//             }
-//         } else {
-//             console.log("Incorrect simbol")
-//         }
-//     }
-// }
+    if (!num2) {
+        if (simbols.indexOf(sim) != -1) {
+            switch (sim) {
+                case "+":
+                    console.log(num1 + num1);
+                    break;
+                case "-":
+                    console.log(num1 - num1);
+                    break;
+                case "*":
+                    console.log(num1 * num1);
+                    break; 
+                case "/":
+                    console.log(num1 / num1);
+                    break; 
+                case "sqrt":
+                    console.log(Math.sqrt(num1));
+                    break;
+                case "cbrt":
+                    console.log(Math.cbrt(num1));
+                    break;             
+            }
+        } else {
+            console.log("Incorrect simbol")
+        }
+    }
+}
 
-// calculadora(1, 2);
-// calculadora(3);
+//! calculadora(1, 2);
+//! calculadora(3);
 
 // exercici 12: a partir de tres números, calcula si poden ser els tres costats d'un triangle rectangle aplicant el
 // teorema de Pitàgores (a**2 == b**2 + c**2 és "true" pels triangles rectangles quan "a" és el seu costat més llarg)
@@ -257,13 +256,13 @@ c1 = 3;
 c2 = 4;
 c3 = 5;
 
-console.log(triangleRectangle(c1,c2,c3));  // ha de tornar true
+//! console.log(triangleRectangle(c1,c2,c3));  // ha de tornar true
 
 c1 = 4;
 c2 = 5;
 c3 = 6;
 
-console.log(triangleRectangle(c1,c2,c3));  // ha de tornar false
+//! console.log(triangleRectangle(c1,c2,c3));  // ha de tornar false
 
 function triangleRectangle(a,b,c) {
     let triangleArray = [a,b,c];
@@ -299,20 +298,27 @@ function triangleRectangle(a,b,c) {
 
 
 // exercici 13: a partir de dos catets, calcula la hipotenusa i els angles d'un triangle rectangle
-//// PISTA: les funcions trigonomètriques estan definides a l'objecte Math
+// PISTA: les funcions trigonomètriques estan definides a l'objecte Math
 
 c1 = 30;
 c2 = 40;
 
 // TODO: defineix la funció calculaHipotenusa()
+function calculaHipotenusa(c1,c2) {
+    const hipotenusa = Math.sqrt(Math.pow(c1,2) + Math.pow(c2,2));
+    return hipotenusa;
+}
 
 // TODO: defineix la funció calculaAngles()
+function calculaAngles(c1,c2) {
+    const angle1 = (Math.asin(c1/calculaHipotenusa(c1,c2)) * (180 / Math.PI)).toFixed(2); // (180 / Math.PI) --> Radians to Degrees;
+    const angle2 = (Math.asin(c2/calculaHipotenusa(c1,c2)) * (180 / Math.PI)).toFixed(2);
 
-console.log(calculaHipotenusa(c1,c2));  // ha de donar 50
+    return `${angle1} & ${angle2}`;
+}
 
-console.log(calculaAngles(c1,c2));      // ha de donar 53.13º i 36.87º
-
-
+//! console.log(calculaHipotenusa(c1,c2));  // ha de donar 50
+//! console.log(calculaAngles(c1,c2));      // ha de donar 53.13º i 36.87º
 
 //* ---------------------------- Mètodes strings -------------------------------
 
@@ -325,9 +331,30 @@ console.log("----------------- Exercicis de strings ---------------");
 
 // TODO: defineix la funció convertirEnEnter()
 
-console.log(convertirEnEnter("hola89234"));     // ha de tornar 89234
-console.log(convertirEnEnter("43.35465adeu"));  // ha de tornar 43
-console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
+//? function convertirEnEnter(someString) {
+//     const digits = someString.match(/\d+/g);
+//     return digits[0];
+// }
+
+//! function convertirEnEnter(someString) {
+//     const digitsArray = someString.split('');
+//     let number = "";
+//     for (let i = 0; i < digitsArray.length; i++) {
+
+//         if (digitsArray[i] == ".") {
+//             number += ".";
+//         } else if (!isNaN(parseInt(digitsArray[i]))) {
+//             number += "" + digitsArray[i];
+//         }
+//     }
+//     const finalNumber = parseInt(number);
+//     return finalNumber;
+// }
+
+
+//! console.log(convertirEnEnter("hola89234"));     // ha de tornar 89234
+//! console.log(convertirEnEnter("43.35465adeu"));  // ha de tornar 43
+//! console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
 
 
 // exercici 15: recrea la funció parseFloat() de manera que agafi els números encara que hi hagi lletres abans
@@ -336,9 +363,24 @@ console.log(convertirEnEnter("amor45.9odi"));   // ha de tornar 45
 
 // TODO: defineix la funció convertirEnDecimal()
 
-console.log(convertirEnEnter("hola89'234"));     // ha de tornar 89.234
-console.log(convertirEnEnter("43'35adeu"));      // ha de tornar 43.35
-console.log(convertirEnEnter("amor45.9odi"));    // ha de tornar 45.9
+function convertirEnDecimal(someString) {
+    const digitsArray = someString.split('');
+    let number = "";
+    for (let i = 0; i < digitsArray.length; i++) {
+
+        if (digitsArray[i] == "." || digitsArray[i] == "'") {
+            number += ".";
+        } else if (!isNaN(parseInt(digitsArray[i]))) {
+            number += "" + digitsArray[i];
+        }
+    }
+    const finalNumber = Number(number);
+    return finalNumber;
+}
+
+//! console.log(convertirEnDecimal("hola89'234"));     // ha de tornar 89.234
+//! console.log(convertirEnDecimal("43'35adeu"));      // ha de tornar 43.35
+//! console.log(convertirEnDecimal("amor45.9odi"));    // ha de tornar 45.9
 
 
 // exercici 16: recrea la funció "valor absolut", que torna el mateix número si és positiu i el mateix número
@@ -346,10 +388,16 @@ console.log(convertirEnEnter("amor45.9odi"));    // ha de tornar 45.9
 
 // TODO: defineix la funció valorAbsolut()
 
-console.log(valorAbsolut(-3.14));        // ha de tornar 3.14
-console.log(valorAbsolut(0));            // ha de tornar 0
-console.log(valorAbsolut(1234.5678));    // ha de tornar 1234.5678
-console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
+
+//! console.log(valorAbsolut(-3.14));        // ha de tornar 3.14
+//! console.log(valorAbsolut(0));            // ha de tornar 0
+//! console.log(valorAbsolut(1234.5678));    // ha de tornar 1234.5678
+//! console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
+
+function valorAbsolut(value) {
+    const absolutValue = Math.abs(value);
+    return absolutValue;
+}
 
 
 // exercici 17: crea una funció que agafi un string i que torni una lletra aleatoria (sense contar espais i signes 
@@ -357,10 +405,18 @@ console.log(valorAbsolut(-1234.5678));   // ha de tornar 1234.5678
 
 var lletres = "aaaaabcdef!?*";
 
-console.log(lletraRandom(lletres));     // torna una lletra entre la a i la f
+
+
+//! console.log(lletraRandom(lletres));     // torna una lletra entre la a i la f
 
 // TODO defineix la funció lletraRandom()
-
+function lletraRandom(lletres) {
+    let char =  lletres[parseInt(Math.random()*(lletres.length - 1))]; // Random with interval array.lenght: Math.random() * (max - min) + min;
+    while (char.toUpperCase() == char.toLowerCase()) { // Only when is a symbol or a space
+        char = lletres[parseInt(Math.random()*(lletres.length - 1))]
+    }
+    return char;       
+}
 
 // exercici 18: crea una funció que agafi un text i li'n separi les paraules (sense signes de puntuació) i les torni
 // en un nou string separades per espais
@@ -371,7 +427,18 @@ var paraules = separarParaules(text);
 
 // TODO: defineix la funció separarParaules()
 
-console.log(paraules);
+function separarParaules(text) {
+    var phrase = "";
+    for (const char of text) {
+        if (char.toLowerCase() != char.toUpperCase() || char == " " ) {
+            phrase += char;
+        }
+    }
+
+    return phrase;
+}
+
+//! console.log(paraules);
 
 
 // exercici 19: crea una funció que agafi un string i que torni una paraula aleatòria continguda en ella (podeu cridar
